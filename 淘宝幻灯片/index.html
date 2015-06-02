@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>js淘宝首页缓冲幻灯片</title>
+<link href="css/zzsc.css" rel="stylesheet" type="text/css" />
+<script src="../move3.js"></script>
+<script>
+window.onload=function(){
+	var oDiv = document.getElementById('play');	
+	var aBtn = document.getElementById('num').getElementsByTagName('li');
+	var oUl = document.getElementById('img');
+	var now=0;
+	
+	for(var i=0;i<aBtn.length;i++)
+	{
+		aBtn[i].index=i;
+		aBtn[i].onmouseover=function()
+		{
+			now=this.index;
+			tab();
+		};	
+	}
+	function tab()
+	{
+	 for(var i=0;i<aBtn.length;i++)
+	  {
+		  aBtn[i].className='';	
+	  }	
+	  aBtn[now].className='hover';
+	  //oUl.style.top=-150*this.index+'px';
+	  startMove(oUl,{top:-173*now});	
+	}
+	function next()
+	{
+		now++;
+		if(now==aBtn.length)
+		{
+			now=0;	
+		}
+		tab();	
+	}
+	var timer=setInterval(next, 2000);
+	oDiv.onmouseover=function()
+	{
+		clearInterval(timer);	
+	};
+	oDiv.onmouseout=function()
+	{
+		timer=setInterval(next, 2000);	
+	};
+};
+</script>
+</head>
+<body>
+<div id="play">  
+  <ol id="num">
+    <li  class="hover">1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+  </ol>
+  <ul id="img">
+    <li><img src="images/zzsc1.png" width="490" height="170" /></li>
+    <li><img src="images/zzsc2.gif" width="490" height="170" /></li>
+    <li><img src="images/zzsc3.jpg" width="490" height="170" /></li>
+    <li><img src="images/zzsc4.jpg" width="490" height="170" /></li>
+    <li><img src="images/zzsc5.jpg" width="490" height="170" /></li>
+  </ul>
+
+</div>
+
+</body>
+</html>

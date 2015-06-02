@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="new_Ajax.js"></script>
+<script>
+window.onload=function()
+{
+	var oBtn=document.getElementById('btn1');
+	var oUl=document.getElementById('ul1');
+	
+	oBtn.onclick=function()
+	{
+		ajax('arr.txt?t='+new Date().getTime(), function(str){
+			var arr=eval(str);
+			
+			for(var i=0; i<arr.length; i++)
+			{
+				var oLi=document.createElement('li');
+				
+				oLi.innerHTML='User: <strong>'+arr[i].user+'</strong> Key: <span>'+arr[i].pass+'</span>';
+				
+				oUl.appendChild(oLi);	
+			}
+			},	function(){
+				alert('failed');
+				});
+	};	
+};
+</script>
+</head>
+
+<body>
+<input id="btn1" type="button" value="read" />
+<ul id="ul1">
+
+</ul>
+</body>
+</html>

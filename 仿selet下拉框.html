@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+#div1 {width: 400px; height: 300px; background: #CCC;display: none;}
+</style>
+<script type="text/javascript">
+	window.onload=function(){
+		var oBtn=document.getElementById('btn1');
+		var oDiv=document.getElementById('div1');
+		oBtn.onclick=function(ev)
+		{ 
+			var oEvent=event||ev;
+			oDiv.style.display='block';
+			oEvent.cancelBubble=true;
+		};
+		document.onclick=function()
+		{
+			oDiv.style.display='none';
+		};
+	};
+</script>
+</head>
+
+
+<body>
+	<input id="btn1" type="button" value="show"/>
+	<div id="div1"></div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="new_Ajax.js"></script>
+<script>
+window.onload=function()
+{
+	oBtn=document.getElementById('btn1');
+	oBtn.onclick=function()
+	{
+		ajax('a2.txt', function(str){
+			alert(str);
+			},function(str){
+			alert(str);
+			});
+	};
+};
+</script>
+</head>
+
+<body>
+<input type="button" id="btn1" value="读取" />
+</body>
+</html>

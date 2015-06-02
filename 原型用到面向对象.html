@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+//用构造函数加属性
+//用原型加方法
+function CreatePerson(name, qq)//构造函数 工厂方式
+{	
+
+	//系统偷偷做
+	//原料
+	//var this=new Object();
+	
+	//加工
+	this.name=name;
+	this.qq=qq;
+/*	
+	this.showName=function ()
+	{
+		alert('我的名字是：'+this.name);	
+	};	
+	this.showQQ=function ()
+	{
+		alert('我的QQ是：'+this.qq);	
+	};*/
+	
+	//出厂
+	//return this;
+}
+
+CreatePerson.prototype.showName=function()
+{
+	alert('my name is:'+this.name);	
+};
+
+CreatePerson.prototype.showQQ=function()
+{
+	alert('my QQ is:'+this.qq);	
+};
+
+var obj=new CreatePerson('blue', '123456');
+
+//obj.showName();
+//obj.showQQ();
+
+var obj2=new CreatePerson('zhangsan','1155452565');
+
+//obj2.showName();
+//obj2.showQQ();
+
+alert(obj.showName==obj2.showName);
+/*
+obj.showName();
+obj.showQQ();*/
+</script>
+</head>
+
+<body>
+</body>
+</html>
